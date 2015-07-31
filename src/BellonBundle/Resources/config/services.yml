@@ -1,0 +1,37 @@
+services:
+    bellon.admin.category:
+        class: BellonBundle\Admin\CategoryAdmin
+        arguments: [~, BellonBundle\Entity\Category, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Bellon, label: Категории}
+
+    bellon.admin.product:
+        class: BellonBundle\Admin\ProductAdmin
+        arguments: [~, BellonBundle\Entity\Product, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Bellon, label: Продукты}
+
+    bellon.admin.config:
+        class: BellonBundle\Admin\ConfigAdmin
+        arguments: [~, BellonBundle\Entity\Config, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Bellon, label: Настройки}
+
+    controller_action_twig_extension:
+        class: BellonBundle\Twig\ControllerActionExtension
+        calls:
+            - [setRequest, ["@?request="]]
+        tags:
+            - { name: twig.extension }
+
+    bellon.admin.product_category:
+        class: BellonBundle\Admin\ProductCategoryAdmin
+        arguments: [~, BellonBundle\Entity\ProductCategory, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Bellon, label: Категории продукта}
+
+    ost_index.container_listener:
+        class: BellonBundle\EventListener\ContainerListener
+        arguments: ["@service_container"]
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }

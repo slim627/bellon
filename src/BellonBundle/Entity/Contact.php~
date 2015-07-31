@@ -1,0 +1,278 @@
+<?php
+
+namespace BellonBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Contact
+ *
+ * @ORM\Table(name="contacts")
+ * @ORM\Entity
+ */
+class Contact
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", nullable=false)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_one", type="string", nullable=true)
+     */
+    private $phoneOne;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_two", type="string", nullable=true)
+     */
+    private $phoneTwo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_three", type="string", nullable=true)
+     */
+    private $phoneThree;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="phone_four", type="string", nullable=true)
+     */
+    private $phoneFour;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", nullable=true)
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", nullable=true)
+     */
+    private $description;
+
+    public function __toString()
+    {
+        return $this->name ? $this->name : 'Создание';
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Contact
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     * @return Contact
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+
+    /**
+     * Set phoneOne
+     *
+     * @param string $phoneOne
+     * @return Contact
+     */
+    public function setPhoneOne($phoneOne)
+    {
+        $this->phoneOne = $phoneOne;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneOne
+     *
+     * @return string 
+     */
+    public function getPhoneOne()
+    {
+        return $this->phoneOne;
+    }
+
+    /**
+     * Set phoneTwo
+     *
+     * @param string $phoneTwo
+     * @return Contact
+     */
+    public function setPhoneTwo($phoneTwo)
+    {
+        $this->phoneTwo = $phoneTwo;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneTwo
+     *
+     * @return string 
+     */
+    public function getPhoneTwo()
+    {
+        return $this->phoneTwo;
+    }
+
+    /**
+     * Set phoneThree
+     *
+     * @param string $phoneThree
+     * @return Contact
+     */
+    public function setPhoneThree($phoneThree)
+    {
+        $this->phoneThree = $phoneThree;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneThree
+     *
+     * @return string 
+     */
+    public function getPhoneThree()
+    {
+        return $this->phoneThree;
+    }
+
+    /**
+     * Set phoneFour
+     *
+     * @param string $phoneFour
+     * @return Contact
+     */
+    public function setPhoneFour($phoneFour)
+    {
+        $this->phoneFour = $phoneFour;
+
+        return $this;
+    }
+
+    /**
+     * Get phoneFour
+     *
+     * @return string 
+     */
+    public function getPhoneFour()
+    {
+        return $this->phoneFour;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Contact
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return Contact
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string 
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+}

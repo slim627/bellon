@@ -1,0 +1,6 @@
+services:
+    sonata.user.admin.group:
+        class: %sonata.user.admin.group.class%
+        tags:
+          - { name: sonata.admin, manager_type: orm, show_in_dashboard: false, group: %sonata.user.admin.groupname%, label: groups }
+        arguments: [null, %sonata.user.admin.group.entity%, %sonata.user.admin.group.controller%]

@@ -1,0 +1,9 @@
+
+<li class="dropdown">
+    <a href="{{ path('index') }}">Основные категории</a>
+    <ul class="dropdown-menu unstyled">
+        {% for category in categories %}
+        <li><a href="{{ path('category_products', {slug: category.slug}) }}">{{ category.name }}</a></li>
+        {% endfor %}
+    </ul>
+</li>

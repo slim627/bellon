@@ -1,0 +1,58 @@
+{% block itm_file_preview_widget %}
+    {% spaceless %}
+        {% if form.parent.vars.value|itm_file_exists(form.vars.name) %}
+
+            {% set modalId = 'modal' ~ random() %}
+            {% set previewId = 'preview' ~ random() %}
+            <div class="itm_file_preview_ico_c">
+                <a id="{{ previewId }}" href="{{ form.parent.vars.value|itm_file_url(form.vars.name) }}">
+                    <img src="{{ asset('bundles/itmfilepreview/images/file.png') }}" />
+                </a>
+            </div>
+            <div class="itm_file_preview_info_c">
+                <span>Тип файла: </span>{{ info.mime }}<br />
+                <span>Размер файла: </span>{{ info.size|readable_filesize }}<br />
+            </div>
+
+            {% if 'application/pdf' == form.vars.info.mime %}
+                <script>
+                //<![CDATA[
+                    (function ($) {
+
+                        $('#{{ previewId }}').on('click', function (e) {
+
+                            e.preventDefault();
+
+                            $('#{{ modalId }}').modal('show').off('shown.bs.modal')
+                                .on('shown.bs.modal', function () {
+
+                                    $('<iframe>', {
+                                        src: '{{ asset('bundles/applicationitmfilepreview/js/vendor/viewerjs/index.html') }}#{{ form.parent.vars.value|itm_file_url(form.vars.name) }}',
+                                        height: '500px',
+                                        width: '870px'
+                                    }).appendTo($('.modal-body', this).empty());
+                                });
+                        });
+                    })(jQuery);
+                //]]>
+                </script>
+                <div class="modal fade" id="{{ modalId }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">PDF</h4>
+                            </div>
+                            <div class="modal-body"></div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="itm_file_separator"></div>
+        {% endif %}
+
+        {{ form_widget(form) }}
+    {% endspaceless %}
+{% endblock %}

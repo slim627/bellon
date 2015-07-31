@@ -1,0 +1,30 @@
+{% extends 'BellonBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="container index">
+
+        <div class="row-fluid">
+
+            {% set index = [0,3,6,9,12,15] %}
+            {% for i, category in categories %}
+            <div class="span4" {% if i in index %} style="margin-left: 0"{% endif %}>
+                <!-- ************************ -->
+                <!-- easyBox **************** -->
+                <div class="easyBox">
+                    <a href="{{ path('category_products', {slug: category.slug}) }}"><img src="{{ category | itm_ipw_path('image') | imagine_filter('category_main') }}" alt=" " class="contentoverlay"></a>
+
+                    <div class="inner">
+                        <a href="{{ path('category_products', {slug: category.slug}) }}"></a>
+                        <h3 class="light"><a href="{{ path('category_products', {slug: category.slug}) }}">{{ category.name }}</a></h3>
+                        {% if category.description is not empty %}<p>{{ category.description }}</p>{% endif %}
+                    </div>
+                </div>
+                <!-- ************************ -->
+                <!-- / easyBox **************** -->
+            </div>
+            {% endfor %}
+        </div>
+        <!-- / row-fluid -->
+    </div>
+    <!-- /  container -->
+{% endblock content %}

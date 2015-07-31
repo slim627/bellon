@@ -1,0 +1,16 @@
+{% extends 'BellonBundle::layout.html.twig' %}
+
+{% block content %}
+    <!-- main container -->
+    <div class="container">
+
+        <div class="row-fluid about">
+            <div class="span8">
+                {{ about.value | raw }}
+            </div>
+        </div>
+        <!-- / row-fluid -->
+
+    </div>
+    <!-- /  container -->
+{% endblock content %}

@@ -1,0 +1,87 @@
+{% extends 'BellonBundle::layout.html.twig' %}
+
+{% block content %}
+    <div class="container">
+
+        <div class="row-fluid product-category">
+            <div class="span9">
+                <!-- ************** -->
+                <!-- blog container -->
+                <div class="blogContainer">
+                    <div class="blogTitle">
+                        <h3 class="big"><a href="javascript:void(0)">{{ category.name }}</a></h3>
+                    </div>
+                    <div class="blogContent">
+                        <div class="row-fluid">
+                            <div class="span12">
+                                <ul class="portfolioList col2" id="portfolio1">
+                                    {% for product in products %}
+                                    <li data-id="1" data-filter="filter-1 filter-2">
+                                        <div class="easyBox">
+                                            <a href="{{ path('product', {slug: product.slug}) }}"><img src="{{ product | itm_ipw_path('image') | imagine_filter('product_main') }}" alt=" "></a>
+                                            <div class="inner">
+                                                <h3 class="light"><a href="{{ path('product', {slug: product.slug}) }}">{{ product.name }}</a></h3>
+                                                <p>{{ product.shortDescription }}</p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ************** -->
+                <!-- / blog container -->
+            </div>
+            <div class="span3">
+                <!-- ***************** -->
+                <!-- sidebar container -->
+                <div class="sidebarContainer">
+                    <div class="widget-inner">
+                        <h3>Категории продуктов</h3>
+                        <ul id="recentcomments">
+                            <li slug="{{ category.slug }}, all"><a href="javascript:void(0)">Вся продукция</a></li>
+                            {% for category in categoryProducts %}
+                            <li slug="{{ category.slug }}"><a href="javascript:void(0)">{{ category.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <!-- / widget-inner -->
+                </div>
+                <!-- ******************* -->
+                <!-- / sidebar container -->
+            </div>
+
+        </div>
+    </div>
+    <!-- /  container -->
+    <script src="{{ asset('js/jquery-1.10.1.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.sidebarContainer li').on('click', function(){
+
+                var slug = this.getAttribute('slug');
+                $.ajax({
+                    type: "POST",
+                    url: '{{ path('specific_products') }}',
+                    data: {slug : slug},
+                    dataType: 'json',
+                    success: function(json){
+                        var outputstring = '';
+
+                        $('.blogContent ul').html('');
+
+                        $.each(json, function(key,product){
+                            outputstring = outputstring + '<li data-id="1" data-filter="filter-1 filter-2"><div class="easyBox"><a href="#"><img src='+product.img+'  alt=""></a><div class="inner"><h3 class="light"><a href="#">'+product.name+'</a></h3><p>'+product.shortDescription+'</p></div></div></li>';
+                        });
+
+                        $('.blogContent ul').append(outputstring);
+                    }
+                });
+            })
+        })
+
+
+    </script>
+{% endblock content %}
