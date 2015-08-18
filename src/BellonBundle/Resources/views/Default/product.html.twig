@@ -20,15 +20,14 @@
 
         <div class="row-fluid">
             <div class="span4">
-                <a class="fancybox-button" rel="fancybox-button" href="{{ product | itm_ipw_url('image') }}"><img src="{{ product | itm_ipw_path('image') | imagine_filter('product_one') }}" alt=" " class="easyFrame"></a>
+                <a class="fancybox-button" rel="fancybox-button" href="{{ product | itm_ipw_url('image') }}"><img src="{% if product | itm_ipw_exists('image') %}{{ product | itm_ipw_path('image') | imagine_filter('product_main') }}"{% endif %} alt=" " class="easyFrame"></a>
             </div>
             <div class="span8">
                 <div class="portfolioDetails">
 
                     <h3 class="light">{{ product.name }}</h3>
-                    <p>
                         {{ product.shortDescription }}
-                    </p>
+                    <br>
                     <br>
                     <p><span class="entypo tools metaText"><i></i>Цена за мелкий опт(от 10): {{ product.minCost }}</span></p>
                     <p><span class="entypo tools metaText"><i></i>Цена за крупный опт(от 50):{{ product.maxCost }}</span></p>
@@ -43,7 +42,6 @@
                     {{ product.description | raw }}
                 <br>
             </div>
-
         </div>
     </div>
 </div>

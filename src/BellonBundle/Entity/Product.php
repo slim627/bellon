@@ -40,7 +40,7 @@ class Product implements \JsonSerializable, ContainerAwareInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", nullable=false)
+     * @ORM\Column(name="image", type="string", nullable=true)
      */
     private $image;
 
@@ -294,6 +294,7 @@ class Product implements \JsonSerializable, ContainerAwareInterface
             'img'              => $pathToCropImage,
             'name'             => $this->getName(),
             'shortDescription' => $this->getShortDescription(),
+            'slug'             => $this->getSlug(),
         ];
     }
 

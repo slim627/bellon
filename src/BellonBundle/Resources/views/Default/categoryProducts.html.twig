@@ -18,7 +18,7 @@
                                     {% for product in products %}
                                     <li data-id="1" data-filter="filter-1 filter-2">
                                         <div class="easyBox">
-                                            <a href="{{ path('product', {slug: product.slug}) }}"><img src="{{ product | itm_ipw_path('image') | imagine_filter('product_main') }}" alt=" "></a>
+                                            <a href="{{ path('product', {slug: product.slug}) }}"><img src="{% if product | itm_ipw_exists('image') %}{{ product | itm_ipw_path('image') | imagine_filter('product_main') }}"{% endif %} alt=" "></a>
                                             <div class="inner">
                                                 <h3 class="light"><a href="{{ path('product', {slug: product.slug}) }}">{{ product.name }}</a></h3>
                                                 <p>{{ product.shortDescription }}</p>
@@ -34,7 +34,7 @@
                 <!-- ************** -->
                 <!-- / blog container -->
             </div>
-            <div class="span3">
+            <div class="span3 navigation">
                 <!-- ***************** -->
                 <!-- sidebar container -->
                 <div class="sidebarContainer">
@@ -73,7 +73,9 @@
                         $('.blogContent ul').html('');
 
                         $.each(json, function(key,product){
-                            outputstring = outputstring + '<li data-id="1" data-filter="filter-1 filter-2"><div class="easyBox"><a href="#"><img src='+product.img+'  alt=""></a><div class="inner"><h3 class="light"><a href="#">'+product.name+'</a></h3><p>'+product.shortDescription+'</p></div></div></li>';
+                            var url = '{{ path("product", {'slug': 'slug'}) }}';
+                            url = url.replace("slug", product.slug );
+                            outputstring = outputstring + '<li data-id="1" data-filter="filter-1 filter-2"><div class="easyBox"><a href="'+url+'"><img src='+product.img+' alt=""></a><div class="inner"><h3 class="light"><a href="'+url+'">'+product.name+'</a></h3><p>'+product.shortDescription+'</p></div></div></li>';
                         });
 
                         $('.blogContent ul').append(outputstring);

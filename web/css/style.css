@@ -7480,7 +7480,8 @@ a:focus {
   color: #ff6138;
 }
 body {
-  font-family: 'Open Sans', sans-serif;
+  /*font-family: 'Open Sans', sans-serif;*/
+  font-family: 'Indie Flower', cursive;
   font-weight: 400;
 }
 body.pat1 {
@@ -8142,6 +8143,7 @@ li.dropdown:hover .dropdown-menu {
 .easyBox .inner {
   padding: 30px 15px 15px 15px;
   text-align: left;
+  min-height: 172px;
 }
 /* / easyBox */
 .iconBox {
@@ -10761,4 +10763,8 @@ ul.commentList .oneComment:hover .metaIcon {
 
 .container.one-product{
   margin-top: 20px;
+}
+
+.span3.navigation{
+    margin-top: 50px;
 }

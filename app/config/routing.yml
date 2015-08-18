@@ -3,8 +3,6 @@ bellon:
     type:     annotation
     prefix:   /
 
-
-
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'
     prefix: /admin
