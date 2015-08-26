@@ -48,7 +48,7 @@
                     <div class="widget-inner">
                         <h3>Категории продуктов</h3>
                         <ul id="recentcomments">
-                            <li slug="{{ category.slug }}, all"><a href="javascript:void(0)">Вся продукция</a></li>
+                            <li id="category-all" slug="{{ category.slug }}, all"><a href="javascript:void(0)">Вся продукция</a></li>
                             {% for category in categoryProducts %}
                             <li slug="{{ category.slug }}"><a href="javascript:void(0)">{{ category.name }}</a></li>
                             {% endfor %}
@@ -66,6 +66,8 @@
     <script src="{{ asset('js/jquery-1.10.1.min.js') }}"></script>
     <script>
         $(document).ready(function () {
+            $('#category-all a').css('color', 'rgba(90, 141, 249, 0.843137)');
+
             $('.sidebarContainer li').on('click', function(){
 
                 $('.sidebarContainer li a').css('color', 'rgb(73, 73, 73)');
