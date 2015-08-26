@@ -10770,4 +10770,5 @@ ul.commentList .oneComment:hover .metaIcon {
 
 .inner.product{
   max-height: 218px;
+  min-height: 218px;
 }
