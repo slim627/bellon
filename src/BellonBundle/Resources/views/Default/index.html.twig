@@ -17,7 +17,7 @@
                 <!-- ************************ -->
                 <!-- easyBox **************** -->
                 <div class="easyBox">
-                    <a href="{{ path('category_products', {slug: category.slug}) }}"><img src="{{ category | itm_ipw_path('image') | imagine_filter('category_main') }}" alt=" " class="contentoverlay"></a>
+                    <a href="{{ path('category_products', {slug: category.slug}) }}">{% if category | itm_ipw_exists('image') %}<img src="{{ category | itm_ipw_path('image') | imagine_filter('category_main') }}" alt=" " class="contentoverlay">{% endif %}</a>
 
                     <div class="inner">
                         <a href="{{ path('category_products', {slug: category.slug}) }}"></a>
