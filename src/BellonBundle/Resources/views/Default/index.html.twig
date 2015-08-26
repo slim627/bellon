@@ -22,7 +22,7 @@
                     <div class="inner">
                         <a href="{{ path('category_products', {slug: category.slug}) }}"></a>
                         <h3 class="light"><a href="{{ path('category_products', {slug: category.slug}) }}">{{ category.name }}</a></h3>
-                        {% if category.description is not empty %}<p>{{ category.description | slice(0,50)}}</p>{% endif %}
+                        {% if category.description is not empty %}<p>{{ category.description }}</p>{% endif %}
                     </div>
                 </div>
                 <!-- ************************ -->
