@@ -1,9 +1,9 @@
 {% extends 'BellonBundle::layout.html.twig' %}
 
 {% block meta_tags %}
-    {% if category.metaTitle is not empty %}<title>{{ category.metaTitle }}</title>{% endif %}
-    {% if category.metaDescription is not empty %}<meta name="description" content="{{ category.metaDescription }}">{% endif %}
-    {% if category.metaKeywords is not empty %}<meta name="keywords" content="{{ category.metaKeywords }}">{% endif %}
+    {% if category is not empty %}<title>{{ category.metaTitle }}</title>{% endif %}
+    {% if category is not empty %}<meta name="description" content="{{ category.metaDescription }}">{% endif %}
+    {% if category is not empty %}<meta name="keywords" content="{{ category.metaKeywords }}">{% endif %}
 {%  endblock meta_tags %}
 
 {% block content %}
