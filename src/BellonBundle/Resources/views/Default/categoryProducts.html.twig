@@ -26,7 +26,7 @@
                                         <div class="easyBox">
                                             <a href="{{ path('product', {slug: product.slug}) }}"><img src="{% if product | itm_ipw_exists('image') %}{{ product | itm_ipw_path('image') | imagine_filter('product_main') }}"{% endif %} alt=" "></a>
                                             <div class="inner" style="padding-top: 10px">
-                                                <h5 style="text-align: center">{{ product.minCost }} - {{ product.maxCost }}</h5>
+                                                <h5 style="text-align: center">{{ product.maxCost }} - {{ product.minCost }}</h5>
                                                 <h3 class="light"><a href="{{ path('product', {slug: product.slug}) }}">{{ product.name }}</a></h3>
                                                 <p>{{ product.shortDescription }}</p>
                                             </div>
