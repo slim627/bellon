@@ -313,6 +313,8 @@ class Product implements \JsonSerializable, ContainerAwareInterface
             'name'             => $this->getName(),
             'shortDescription' => $this->getShortDescription(),
             'slug'             => $this->getSlug(),
+            'minCost'          => $this->getMinCost(),
+            'maxCost'          => $this->getMaxCost(),
         ];
     }
 

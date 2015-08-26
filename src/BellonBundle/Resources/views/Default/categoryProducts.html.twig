@@ -82,7 +82,7 @@
                         $.each(json, function(key,product){
                             var url = '{{ path("product", {'slug': 'slug'}) }}';
                             url = url.replace("slug", product.slug );
-                            outputstring = outputstring + '<li data-id="1" data-filter="filter-1 filter-2"><div class="easyBox"><a href="'+url+'"><img src='+product.img+' alt=""></a><div class="inner"><h3 class="light"><a href="'+url+'">'+product.name+'</a></h3><p>'+product.shortDescription+'</p></div></div></li>';
+                            outputstring = outputstring + '<li data-id="1" data-filter="filter-1 filter-2"><div class="easyBox"><a href="'+url+'"><img src='+product.img+' alt=""></a><div class="inner"><h5 style="text-align: center">'+product.maxCost+' - '+product.minCost+'</h5><h3 class="light"><a href="'+url+'">'+product.name+'</a></h3><p>'+product.shortDescription+'</p></div></div></li>';
                         });
 
                         $('.blogContent ul').append(outputstring);
