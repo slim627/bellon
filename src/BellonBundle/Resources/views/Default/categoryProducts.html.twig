@@ -25,7 +25,8 @@
                                     <li data-id="1" data-filter="filter-1 filter-2">
                                         <div class="easyBox">
                                             <a href="{{ path('product', {slug: product.slug}) }}"><img src="{% if product | itm_ipw_exists('image') %}{{ product | itm_ipw_path('image') | imagine_filter('product_main') }}"{% endif %} alt=" "></a>
-                                            <div class="inner">
+                                            <div class="inner" style="padding-top: 10px">
+                                                <h4>{{ product.minCost }} - {{ product.maxCost }}</h4>
                                                 <h3 class="light"><a href="{{ path('product', {slug: product.slug}) }}">{{ product.name }}</a></h3>
                                                 <p>{{ product.shortDescription }}</p>
                                             </div>
