@@ -1,5 +1,11 @@
 {% extends 'BellonBundle::layout.html.twig' %}
 
+{% block meta_tags %}
+    <title>{{ meta_title | raw }}</title>
+    <meta name="description" content="{{ meta_description | raw }}">
+    <meta name="keywords" content="{{ meta_keywords | raw }}">
+{%  endblock meta_tags %}
+
 {% block content %}
     <!-- main container -->
     <div class="container">

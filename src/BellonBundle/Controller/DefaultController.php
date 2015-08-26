@@ -16,10 +16,16 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
+        $meta_title = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_TITLE_MAIN']);
+        $meta_description = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_DESCRIPTION_MAIN']);
+        $meta_keywords = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_KEYWORDS_MAIN']);
         $categories = $this->getDoctrine()->getRepository('BellonBundle:Category')->findAll();
 
         return [
-            'categories' => $categories,
+            'categories'       => $categories,
+            'meta_title'       => strip_tags($meta_title->getValue()),
+            'meta_description' => strip_tags($meta_description->getValue()),
+            'meta_keywords'    => strip_tags($meta_keywords->getValue()),
         ];
     }
 
@@ -29,10 +35,16 @@ class DefaultController extends Controller
      */
     public function aboutAction()
     {
+        $meta_title = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_TITLE_ABOUT']);
+        $meta_description = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_DESCRIPTION_ABOUT']);
+        $meta_keywords = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_KEYWORDS_ABOUT']);
         $about = $this->getDoctrine()->getRepository('BellonBundle:Config')->getConfigByKeyValue('ABOUT');
 
         return [
             'about' => $about,
+            'meta_title'       => strip_tags($meta_title->getValue()),
+            'meta_description' => strip_tags($meta_description->getValue()),
+            'meta_keywords'    => strip_tags($meta_keywords->getValue()),
         ];
     }
 
@@ -42,6 +54,9 @@ class DefaultController extends Controller
      */
     public function contactsAction(Request $request)
     {
+        $meta_title = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_TITLE_CONTACTS']);
+        $meta_description = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_DESCRIPTION_CONTACTS']);
+        $meta_keywords = $this->getDoctrine()->getRepository('BellonBundle:Config')->findOneBy(['keyValue' => 'META_KEYWORDS_CONTACTS']);
         $address = $this->getDoctrine()->getRepository('BellonBundle:Config')->getConfigByKeyValue('ADDRESS');
         $phone1 = $this->getDoctrine()->getRepository('BellonBundle:Config')->getConfigByKeyValue('PHONE_1');
         $phone2 = $this->getDoctrine()->getRepository('BellonBundle:Config')->getConfigByKeyValue('PHONE_2');
@@ -72,6 +87,9 @@ class DefaultController extends Controller
             'phone1' => $phone1,
             'phone2' => $phone2,
             'email'  => $email,
+            'meta_title'       => strip_tags($meta_title->getValue()),
+            'meta_description' => strip_tags($meta_description->getValue()),
+            'meta_keywords'    => strip_tags($meta_keywords->getValue()),
         ];
     }
 

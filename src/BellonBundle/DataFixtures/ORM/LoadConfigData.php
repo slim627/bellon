@@ -61,6 +61,60 @@ class LoadConfigData implements FixtureInterface
         $config->setKeyValue('ABOUT');
         $manager->persist($config);
 
+        $config = new Config();
+        $config->setName('Meta-title на главной');
+        $config->setValue('Meta-title на главной');
+        $config->setKeyValue('META_TITLE_MAIN');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-description на главной');
+        $config->setValue('Meta-description на главной');
+        $config->setKeyValue('META_DESCRIPTION_MAIN');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-keywords на главной');
+        $config->setValue('Meta-keywords на главной');
+        $config->setKeyValue('META_KEYWORDS_MAIN');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-title на О нас');
+        $config->setValue('Meta-title на О нас');
+        $config->setKeyValue('META_TITLE_ABOUT');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-description на О нас');
+        $config->setValue('Meta-description на О нас');
+        $config->setKeyValue('META_DESCRIPTION_ABOUT');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-keywords на О нас');
+        $config->setValue('Meta-keywords на О нас');
+        $config->setKeyValue('META_KEYWORDS_ABOUT');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-title на Контактах');
+        $config->setValue('Meta-title на Контактах');
+        $config->setKeyValue('META_TITLE_CONTACTS');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-description на Контактах');
+        $config->setValue('Meta-description на Контактах');
+        $config->setKeyValue('META_DESCRIPTION_CONTACTS');
+        $manager->persist($config);
+
+        $config = new Config();
+        $config->setName('Meta-keywords на Контактах');
+        $config->setValue('Meta-keywords на Контактах');
+        $config->setKeyValue('META_KEYWORDS_CONTACTS');
+        $manager->persist($config);
+
         $User = new User();
         $User->setEmail("admin@admin.by");
         $User->setPlainPassword("admin");
