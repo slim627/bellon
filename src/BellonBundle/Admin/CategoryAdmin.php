@@ -47,6 +47,12 @@ class CategoryAdmin extends Admin
             ->add('name')
             ->add('description')
             ->add('image','itm_image_preview', ['required' => false])
+            ->end()
+            ->with('Meta tags для СЕО')
+                ->add('metaTitle')
+                ->add('metaDescription')
+                ->add('metaKeywords')
+            ->end()
         ;
     }
 
@@ -60,6 +66,9 @@ class CategoryAdmin extends Admin
             ->add('name')
             ->add('description')
             ->add('image', 'string', ['template' => 'BellonBundle:Preview:category.preview.show.html.twig'])
+            ->add('metaTitle')
+            ->add('metaDescription')
+            ->add('metaKeywords')
         ;
     }
 }

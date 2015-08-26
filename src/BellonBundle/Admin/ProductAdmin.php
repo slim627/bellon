@@ -59,7 +59,12 @@ class ProductAdmin extends Admin
             ->add('description', 'ckeditor',array(
                 'config_name' => 'default',
             ))
-
+            ->end()
+            ->with('Meta tags для СЕО')
+                ->add('metaTitle')
+                ->add('metaDescription')
+                ->add('metaKeywords')
+            ->end()
         ;
     }
 
@@ -77,6 +82,9 @@ class ProductAdmin extends Admin
             ->add('image', 'string', ['template' => 'BellonBundle:Preview:product.preview.show.html.twig'])
             ->add('shortDescription')
             ->add('description', null, ['safe' => true])
+            ->add('metaTitle')
+            ->add('metaDescription')
+            ->add('metaKeywords')
         ;
     }
 }

@@ -40,7 +40,7 @@ class Product implements \JsonSerializable, ContainerAwareInterface
     /**
      * @var string
      *
-     * @ORM\Column(name="image", type="string", nullable=false)
+     * @ORM\Column(name="image", type="string", nullable=true)
      */
     private $image;
 
@@ -76,6 +76,24 @@ class Product implements \JsonSerializable, ContainerAwareInterface
      * @ORM\ManyToOne(targetEntity="BellonBundle\Entity\ProductCategory", inversedBy="products")
      */
     private $productCategory;
+
+    /**
+     * @var string
+     * @ORM\Column(name="meta_title", type="text", nullable=true)
+     */
+    private $metaTitle;
+
+    /**
+     * @var string
+     * @ORM\Column(name="meta_description", type="text", nullable=true)
+     */
+    private $metaDescription;
+
+    /**
+     * @var string
+     * @ORM\Column(name="meta_keywords", type="text", nullable=true)
+     */
+    private $metaKeywords;
 
     public function __toString()
     {
@@ -294,6 +312,99 @@ class Product implements \JsonSerializable, ContainerAwareInterface
             'img'              => $pathToCropImage,
             'name'             => $this->getName(),
             'shortDescription' => $this->getShortDescription(),
+            'slug'             => $this->getSlug(),
         ];
+    }
+
+    /**
+     * Set minCost
+     *
+     * @param string $minCost
+     * @return Product
+     */
+    public function setMinCost($minCost)
+    {
+        $this->minCost = $minCost;
+
+        return $this;
+    }
+
+    /**
+     * Get minCost
+     *
+     * @return string 
+     */
+    public function getMinCost()
+    {
+        return $this->minCost;
+    }
+
+    /**
+     * Set maxCost
+     *
+     * @param string $maxCost
+     * @return Product
+     */
+    public function setMaxCost($maxCost)
+    {
+        $this->maxCost = $maxCost;
+
+        return $this;
+    }
+
+    /**
+     * Get maxCost
+     *
+     * @return string 
+     */
+    public function getMaxCost()
+    {
+        return $this->maxCost;
+    }
+
+    /**
+     * Set metaTitle
+     *
+     * @param string $metaTitle
+     * @return Product
+     */
+    public function setMetaTitle($metaTitle)
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get metaTitle
+     *
+     * @return string 
+     */
+    public function getMetaTitle()
+    {
+        return $this->metaTitle;
+    }
+
+    /**
+     * Set metaDescription
+     *
+     * @param string $metaDescription
+     * @return Product
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get metaDescription
+     *
+     * @return string 
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
     }
 }
