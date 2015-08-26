@@ -68,6 +68,9 @@
         $(document).ready(function () {
             $('.sidebarContainer li').on('click', function(){
 
+                $('.sidebarContainer li a').css('color', 'rgb(73, 73, 73)');
+                $(this).find('a').css('color', 'rgba(90, 141, 249, 0.843137)');
+
                 var slug = this.getAttribute('slug');
                 $.ajax({
                     type: "POST",
