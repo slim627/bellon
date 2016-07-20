@@ -59,7 +59,7 @@
                                             <a href="{{ path('product', {slug: product.slug}) }}"><img src="{% if product | itm_ipw_exists('image') %}{{ product | itm_ipw_path('image') | imagine_filter('product_main') }}"{% endif %} alt=" "></a>
                                             <div class="inner product" style="padding-top: 10px">
                                                 <h5 style="text-align: center; margin-bottom: 0">{{ product.maxCost }} - {{ product.minCost }}</h5>
-                                                <h5 style="text-align: center; margin-top: 0">{{ product.maxCost / 10000 | }}0 руб - {{ product.minCost / 10000 }}0 руб</h5>
+                                                <h5 style="text-align: center; margin-top: 0">{{ product.maxCost / 10000 }}0 руб - {{ product.minCost / 10000 }}0 руб</h5>
                                                 <h4 class="light"><a href="{{ path('product', {slug: product.slug}) }}">{{ product.name }}</a></h4>
                                                 <p>{{ product.shortDescription }}</p>
                                             </div>
